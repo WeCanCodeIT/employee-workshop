@@ -29,4 +29,13 @@ public class Employee {
     public void recievePay() {
         paidStatus = true;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "salary=" + salary +
+                ", name='" + name + '\'' +
+                ", paidStatus=" + paidStatus +
+                '}';
+    }
 }

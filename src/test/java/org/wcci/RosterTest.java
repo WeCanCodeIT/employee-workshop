@@ -44,4 +44,24 @@ public class RosterTest {
         assertTrue(retrievedEmployees.get(0).getPaidStatus());
         assertTrue(retrievedEmployees.get(1).getPaidStatus());
     }
+    @Test
+    public void shouldChangeEmployeePayRateWithARosterOfTwo(){
+        Employee testEmployee2 = new Employee("TestEmployee2", 1000000);
+        underTest.hire(testEmployee2);
+        //Action
+        underTest.changeEmployeeSalary("TestEmployee", 110);
+        //Assertion
+        Employee retrievedEmployee = underTest.retrieveEmployee("TestEmployee");
+        assertEquals(110, retrievedEmployee.getSalary());
+    }
+    @Test
+    public void shouldAnotherChangeEmployeePayRateWithARosterOfTwo(){
+        Employee testEmployee2 = new Employee("TestEmployee2", 1000000);
+        underTest.hire(testEmployee2);
+        //Action
+        underTest.changeEmployeeSalary("TestEmployee2", 1100);
+        //Assertion
+        Employee retrievedEmployee = underTest.retrieveEmployee("TestEmployee2");
+        assertEquals(1100, retrievedEmployee.getSalary());
+    }
 }
