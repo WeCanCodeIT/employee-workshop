@@ -18,6 +18,9 @@ public class Roster {
     public void payAllEmployees() {
         for (Employee employeeToBePaid : employeeList.values()) {
             employeeToBePaid.recievePay();
+            if(employeeToBePaid instanceof Bonusable){
+                ((Bonusable) employeeToBePaid).recieveBonus(100);
+            }
         }
     }
 

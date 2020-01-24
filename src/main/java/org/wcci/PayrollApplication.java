@@ -4,33 +4,24 @@ import java.util.Scanner;
 
 public class PayrollApplication {
     public static void main(String[] args) {
-        Employee shoeShiner = new Employee("Roger", 2000);
-        Employee shoeShinerExecutive = new Employee("Bill", 200000);
+        Sales sales = new Sales("Roger", 15, 40);
+        Janitor janitor = new Janitor("Bob", 15, 32);
+        Executive shoeShinerExecutive = new Executive("Bill", 200000);
+        Manager manager = new Manager("Karen", 35000);
+        Roster payroll = new Roster();
+        payroll.hire(sales);
+        payroll.hire(janitor);
+        payroll.hire(shoeShinerExecutive);
+        payroll.hire(manager);
 
-        Roster employeeRoster = new Roster();
-        employeeRoster.hire(shoeShiner);
-        employeeRoster.hire(shoeShinerExecutive);
+
         System.out.println("Here are our employees:");
-        System.out.println(employeeRoster.retrieveEmployeeList());
-
-        System.out.println("Hire a new employee!  What's their name?");
-        Scanner input = new Scanner(System.in);
-        String employeeName = input.nextLine();
-        System.out.println("What's their salary?");
-        int salary = input.nextInt();
-        input.nextLine();
-        System.out.println("What kind of employee? (Janitor, Manager, Executive, Sales");
-        employeeRoster.hire(new Employee(employeeName, salary));
-
-        System.out.println("This is our new roster:");
-        for(Employee employee :employeeRoster.retrieveEmployeeList()){
+        System.out.println(payroll.retrieveEmployeeList());
+        payroll.payAllEmployees();
+        for (Employee employee : payroll.retrieveEmployeeList()) {
             System.out.println(employee);
         }
-        employeeRoster.payAllEmployees();
-        for(Employee employee :employeeRoster.retrieveEmployeeList()){
-            System.out.println(employee);
-        }
-//        System.out.println(employeeRoster.retrieveEmployeeList());
+        System.out.println(payroll.retrieveEmployeeList());
 
     }
 }

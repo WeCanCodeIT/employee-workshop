@@ -1,9 +1,9 @@
 package org.wcci;
 
-public class Employee {
-    private int payRate;
+public abstract class Employee {
+    protected int payRate;
     private String name;
-    private int payCheckAmount;
+    protected int payCheckAmount;
 
     public Employee(String name, int payRate) {
         this.name = name;
@@ -26,9 +26,7 @@ public class Employee {
         return payCheckAmount;
     }
 
-    public void recievePay() {
-        payCheckAmount += payRate;
-    }
+    public abstract void recievePay();
 
     @Override
     public String toString() {
