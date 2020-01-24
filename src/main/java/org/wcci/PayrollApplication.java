@@ -15,11 +15,12 @@ public class PayrollApplication {
 
         System.out.println("Hire a new employee!  What's their name?");
         Scanner input = new Scanner(System.in);
-        String enployeeName = input.nextLine();
+        String employeeName = input.nextLine();
         System.out.println("What's their salary?");
         int salary = input.nextInt();
         input.nextLine();
-        employeeRoster.hire(new Employee(enployeeName, salary));
+        System.out.println("What kind of employee? (Janitor, Manager, Executive, Sales");
+        employeeRoster.hire(new Employee(employeeName, salary));
 
         System.out.println("This is our new roster:");
         for(Employee employee :employeeRoster.retrieveEmployeeList()){

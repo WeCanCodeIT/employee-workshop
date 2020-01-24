@@ -27,24 +27,24 @@ public class EmployeeTest {
     }
     @Test
     public void shouldHaveSalary(){
-        int salary = underTest.getSalary();
+        int salary = underTest.getPayRate();
         assertEquals(100, salary);
     }
     @Test
     public void changePayRate(){
         underTest.changeSalary(110);
-        int salary = underTest.getSalary();
+        int salary = underTest.getPayRate();
         assertEquals(110, salary);
     }
     @Test
     public void employeeShouldKnowIfTheyAreNotPaid(){
-        boolean isPaid = underTest.getPaidStatus();
+        boolean isPaid = underTest.getPayCheckAmount();
         assertFalse(isPaid);
     }
     @Test
     public void employeeShouldKnowIfTheyArePaid(){
         underTest.recievePay();
-        boolean isPaid = underTest.getPaidStatus();
+        boolean isPaid = underTest.getPayCheckAmount();
         assertTrue(isPaid);
     }
 }

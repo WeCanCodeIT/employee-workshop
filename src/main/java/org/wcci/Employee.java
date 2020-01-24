@@ -1,41 +1,41 @@
 package org.wcci;
 
 public class Employee {
-    private int salary;
+    private int payRate;
     private String name;
-    private boolean paidStatus;
+    private int payCheckAmount;
 
-    public Employee(String name, int salary) {
+    public Employee(String name, int payRate) {
         this.name = name;
-        this.salary = salary;
+        this.payRate = payRate;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getSalary() {
-        return salary;
+    public int getPayRate() {
+        return payRate;
     }
 
     public void changeSalary(int newSalary) {
-        salary = newSalary;
+        payRate = newSalary;
     }
 
-    public boolean getPaidStatus()  {
-        return paidStatus;
+    public int getPayCheckAmount()  {
+        return payCheckAmount;
     }
 
     public void recievePay() {
-        paidStatus = true;
+        payCheckAmount += payRate;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "salary=" + salary +
-                ", name='" + name + '\'' +
-                ", paidStatus=" + paidStatus +
+                "payRate = $" + payRate +
+                ", name = '" + name + '\'' +
+                ", payCheckAmount = $" + payCheckAmount +
                 '}';
     }
 }

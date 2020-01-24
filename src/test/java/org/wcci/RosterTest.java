@@ -31,7 +31,7 @@ public class RosterTest {
         underTest.payAllEmployees();
         //Assertion
         ArrayList<Employee> retrievedEmployees = underTest.retrieveEmployeeList();
-        assertTrue(retrievedEmployees.get(0).getPaidStatus());
+        assertTrue(retrievedEmployees.get(0).getPayCheckAmount());
     }
     @Test
     public void shouldPayAllEmployeesOfARosterOfTwo(){
@@ -41,8 +41,8 @@ public class RosterTest {
         underTest.payAllEmployees();
         //Assertion
         ArrayList<Employee> retrievedEmployees = underTest.retrieveEmployeeList();
-        assertTrue(retrievedEmployees.get(0).getPaidStatus());
-        assertTrue(retrievedEmployees.get(1).getPaidStatus());
+        assertTrue(retrievedEmployees.get(0).getPayCheckAmount());
+        assertTrue(retrievedEmployees.get(1).getPayCheckAmount());
     }
     @Test
     public void shouldChangeEmployeePayRateWithARosterOfTwo(){
@@ -52,7 +52,7 @@ public class RosterTest {
         underTest.changeEmployeeSalary("TestEmployee", 110);
         //Assertion
         Employee retrievedEmployee = underTest.retrieveEmployee("TestEmployee");
-        assertEquals(110, retrievedEmployee.getSalary());
+        assertEquals(110, retrievedEmployee.getPayRate());
     }
     @Test
     public void shouldAnotherChangeEmployeePayRateWithARosterOfTwo(){
@@ -62,6 +62,6 @@ public class RosterTest {
         underTest.changeEmployeeSalary("TestEmployee2", 1100);
         //Assertion
         Employee retrievedEmployee = underTest.retrieveEmployee("TestEmployee2");
-        assertEquals(1100, retrievedEmployee.getSalary());
+        assertEquals(1100, retrievedEmployee.getPayRate());
     }
 }
